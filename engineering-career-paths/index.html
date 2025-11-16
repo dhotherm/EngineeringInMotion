@@ -27,7 +27,6 @@
             padding: 0 2rem;
         }
 
-        /* Header */
         header {
             text-align: center;
             padding: 8rem 2rem 4rem;
@@ -59,9 +58,8 @@
             letter-spacing: -0.01em;
         }
 
-        /* Intro Section */
         .intro {
-            padding: 6rem 0;
+            padding: 6rem 0 4rem;
             background: #000000;
         }
 
@@ -84,11 +82,64 @@
             color: #f5f5f7;
         }
 
-        /* Tabs */
+        .pattern-visual {
+            background: linear-gradient(135deg, #1d1d1f 0%, #2a2a2f 100%);
+            padding: 3rem;
+            margin: 3rem 0;
+            border-radius: 2rem;
+            border: 1px solid rgba(0, 113, 227, 0.3);
+            box-shadow: 0 12px 32px rgba(0, 113, 227, 0.2);
+        }
+
+        .pattern-visual h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #f5f5f7;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .pattern-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pattern-level {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1rem;
+            border-left: 4px solid #0071e3;
+        }
+
+        .pattern-level.highlight {
+            background: rgba(0, 113, 227, 0.15);
+            border-left-color: #00a8e8;
+            border-left-width: 6px;
+        }
+
+        .pattern-level-name {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: #f5f5f7;
+            min-width: 180px;
+        }
+
+        .pattern-level-scope {
+            font-size: 1.125rem;
+            color: #a1a1a6;
+            flex: 1;
+        }
+
         .tabs {
             display: flex;
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin: 4rem 0 3rem;
             padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             flex-wrap: wrap;
@@ -132,7 +183,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Level Cards */
         .levels-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -155,6 +205,11 @@
             border-color: rgba(0, 113, 227, 0.3);
         }
 
+        .level-card.highlight {
+            border: 2px solid #0071e3;
+            background: linear-gradient(135deg, #1d1d1f 0%, rgba(0, 113, 227, 0.1) 100%);
+        }
+
         .level-header {
             display: flex;
             align-items: center;
@@ -163,14 +218,14 @@
         }
 
         .level-badge {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 1rem;
             background: linear-gradient(135deg, #0071e3 0%, #00a8e8 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: white;
             box-shadow: 0 8px 16px rgba(0, 113, 227, 0.4);
@@ -186,20 +241,24 @@
         }
 
         .level-title p {
-            font-size: 1.125rem;
-            color: #a1a1a6;
+            font-size: 1.25rem;
+            color: #0071e3;
+            font-weight: 500;
         }
 
         .level-details {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1rem;
         }
 
         .detail-item h4 {
-            color: #0071e3;
-            font-size: 1rem;
+            color: #60a5fa;
+            font-size: 0.9rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -207,15 +266,13 @@
         }
 
         .detail-item p {
-            color: #a1a1a6;
+            color: #f5f5f7;
             font-size: 1.0625rem;
             line-height: 1.5;
         }
 
         .level-examples {
             margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .level-examples h4 {
@@ -236,6 +293,7 @@
             padding-left: 1.75rem;
             position: relative;
             font-size: 1.0625rem;
+            line-height: 1.6;
         }
 
         .level-examples li::before {
@@ -246,49 +304,6 @@
             font-weight: 600;
         }
 
-        /* Comparison Table */
-        .comparison-table {
-            background: #1d1d1f;
-            border-radius: 2rem;
-            padding: 3rem;
-            margin: 3rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow-x: auto;
-        }
-
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .comparison-table th {
-            color: #0071e3;
-            font-size: 1rem;
-            font-weight: 600;
-            text-align: left;
-            padding: 1rem;
-            border-bottom: 2px solid rgba(0, 113, 227, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .comparison-table td {
-            color: #a1a1a6;
-            padding: 1.25rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 1.0625rem;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .comparison-table .role-name {
-            color: #f5f5f7;
-            font-weight: 600;
-        }
-
-        /* Impact Box */
         .impact-box {
             background: linear-gradient(135deg, #1d1d1f 0%, #2a2a2f 100%);
             padding: 3rem;
@@ -313,11 +328,21 @@
             font-size: 1.125rem;
         }
 
+        .impact-box ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .impact-box li {
+            color: #a1a1a6;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
         .impact-box strong {
             color: #f5f5f7;
         }
 
-        /* Warning Box */
         .warning-box {
             background: rgba(249, 115, 22, 0.1);
             border-left: 4px solid #f97316;
@@ -336,9 +361,19 @@
         .warning-box p {
             color: #fed7aa;
             line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
-        /* Example Box */
+        .warning-box ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .warning-box li {
+            color: #fed7aa;
+            margin-bottom: 0.5rem;
+        }
+
         .example-box {
             background: rgba(34, 197, 94, 0.1);
             border-left: 4px solid #22c55e;
@@ -360,8 +395,56 @@
             margin-bottom: 1rem;
         }
 
-        /* Career Ladder Visual */
-        .ladder-visual {
+        .comparison-table {
+            background: #1d1d1f;
+            border-radius: 2rem;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-x: auto;
+        }
+
+        .comparison-table h3 {
+            color: #f5f5f7;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            color: #0071e3;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid rgba(0, 113, 227, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table td {
+            color: #a1a1a6;
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1.0625rem;
+            line-height: 1.6;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .role-name {
+            color: #f5f5f7;
+            font-weight: 600;
+        }
+
+        .org-structure {
             background: #1d1d1f;
             padding: 3rem;
             border-radius: 2rem;
@@ -369,32 +452,35 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .ladder-tracks {
+        .org-structure h3 {
+            color: #f5f5f7;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .org-tracks {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             margin-top: 2rem;
         }
 
-        .track {
-            position: relative;
-        }
-
-        .track h3 {
+        .org-track h4 {
             color: #0071e3;
             font-size: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             font-weight: 600;
         }
 
-        .track-levels {
+        .org-levels {
             display: flex;
             flex-direction: column-reverse;
             gap: 1rem;
         }
 
-        .track-level {
+        .org-level {
             background: rgba(255, 255, 255, 0.05);
             padding: 1.25rem;
             border-radius: 0.75rem;
@@ -402,24 +488,23 @@
             transition: all 0.3s ease;
         }
 
-        .track-level:hover {
+        .org-level:hover {
             background: rgba(0, 113, 227, 0.1);
             border-color: rgba(0, 113, 227, 0.3);
         }
 
-        .track-level-name {
+        .org-level-name {
             color: #f5f5f7;
             font-weight: 600;
             font-size: 1.125rem;
         }
 
-        .track-level-equiv {
+        .org-level-note {
             color: #a1a1a6;
             font-size: 0.9rem;
             margin-top: 0.25rem;
         }
 
-        /* Footer */
         footer {
             padding: 4rem 2rem;
             text-align: center;
@@ -433,7 +518,6 @@
             font-size: 0.875rem;
         }
 
-        /* Responsive */
         @media (max-width: 968px) {
             header h1 {
                 font-size: 3rem;
@@ -444,17 +528,12 @@
                 flex-wrap: nowrap;
             }
 
-            .tab-button {
-                white-space: nowrap;
-            }
-
             .intro h2 {
                 font-size: 2rem;
             }
 
-            .ladder-tracks {
+            .org-tracks {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .level-details {
@@ -465,103 +544,151 @@
 </head>
 <body>
     <header>
-        <h1>Engineering Career Paths & Technical Leadership</h1>
-        <p>Understanding the roles, levels, and impact of technical leaders in world-class engineering organizations</p>
+        <h1>Engineering Career Paths</h1>
+        <p>Building world-class technical leadership through clear Individual Contributor tracks</p>
     </header>
 
     <div class="container">
         <div class="intro">
-            <h2>The Challenge</h2>
-            <p><strong>The confusion:</strong> Organizations often struggle to differentiate between Senior Engineers, Staff Engineers, Principals, Distinguished Engineers, and various Architect roles. Titles exist, but the actual responsibilities and career progression aren't clear.</p>
-            <p><strong>The impact:</strong> Without clear career paths, top technical talent leaves. Without proper leveling, the wrong people make critical decisions. Without role clarity, teams get blocked waiting for approvals from the wrong stakeholders.</p>
-            <p><strong>The goal:</strong> Define what world-class engineering career paths look like, how different technical leadership roles create value, and why it matters for velocity and talent retention.</p>
+            <h2>The Core Pattern</h2>
+            <p>World-class engineering organizations structure technical leadership around a simple principle: <strong>scope expands from team to domain to organization to company.</strong> At each level, engineers stay hands-on with code but work at increasingly higher leverage points.</p>
+            <p style="margin-top: 2rem;">The most critical missing piece in many organizations? <strong>Staff Engineers</strong> — the layer between Senior Engineers (working in teams) and Principal Engineers (leading entire domains).</p>
+        </div>
+
+        <div class="pattern-visual">
+            <h3>Scope of Impact</h3>
+            <div class="pattern-levels">
+                <div class="pattern-level">
+                    <div class="pattern-level-name">Senior Engineer</div>
+                    <div class="pattern-level-scope">Works <strong>IN a team</strong>, delivers features sprint by sprint</div>
+                </div>
+                <div class="pattern-level highlight">
+                    <div class="pattern-level-name">Staff Engineer</div>
+                    <div class="pattern-level-scope">Works <strong>ACROSS teams</strong> in a domain, unblocks and designs ← THE MISSING PIECE</div>
+                </div>
+                <div class="pattern-level">
+                    <div class="pattern-level-name">Principal Engineer</div>
+                    <div class="pattern-level-scope">Works <strong>ACROSS entire domain</strong>, sets technical strategy</div>
+                </div>
+                <div class="pattern-level">
+                    <div class="pattern-level-name">Distinguished Engineer</div>
+                    <div class="pattern-level-scope">Works <strong>ACROSS domains</strong>, drives company-wide initiatives</div>
+                </div>
+                <div class="pattern-level">
+                    <div class="pattern-level-name">Fellow</div>
+                    <div class="pattern-level-scope">Works at <strong>INDUSTRY level</strong>, influences standards and research</div>
+                </div>
+            </div>
         </div>
 
         <div class="tabs">
-            <button class="tab-button active" onclick="showTab('gap')">The Career Path Gap</button>
-            <button class="tab-button" onclick="showTab('ic-track')">IC Track Explained</button>
-            <button class="tab-button" onclick="showTab('in-practice')">How It Works in Practice</button>
-            <button class="tab-button" onclick="showTab('leveling')">Leveling & Progression</button>
-            <button class="tab-button" onclick="showTab('roles')">Roles in Modern Orgs</button>
+            <button class="tab-button active" onclick="showTab('gap')">The Missing Layer</button>
+            <button class="tab-button" onclick="showTab('ic-track')">The IC Track</button>
+            <button class="tab-button" onclick="showTab('structure')">How It Fits Together</button>
             <button class="tab-button" onclick="showTab('why')">Why This Matters</button>
         </div>
 
         <div id="gap" class="tab-content active">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">The Career Path Gap</h2>
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">The Missing Layer: Staff Engineers</h2>
             
-            <div class="impact-box">
-                <h3>Where We Are Today</h3>
-                <p>Many organizations have an incomplete Individual Contributor (IC) track:</p>
-                <p><strong>Current state:</strong> Junior → Intermediate → Senior → Principal</p>
-                <p style="margin-top: 1rem;">This creates several problems:</p>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #a1a1a6;">
-                    <li>Principal Engineers are leveled equivalent to Managers (should be Director/Senior Manager level)</li>
-                    <li>No Staff Engineer level (the crucial "senior within a team, leading across teams" role)</li>
-                    <li>No Distinguished Engineer level (company-level technical leadership)</li>
-                    <li>No clear path beyond Principal without becoming a manager</li>
-                </ul>
-            </div>
+            <p style="font-size: 1.25rem; color: #a1a1a6; margin-bottom: 3rem;">Most organizations have Senior Engineers in teams and Principals at senior levels, but they're missing the critical connective tissue: Staff Engineers who work across teams in a domain.</p>
 
             <div class="comparison-table">
-                <h3 style="color: #f5f5f7; font-size: 1.75rem; margin-bottom: 2rem;">Current vs Target State</h3>
+                <h3>What's Typically Missing</h3>
                 <table>
                     <thead>
                         <tr>
-                            <th>Current IC Track</th>
-                            <th>Target IC Track</th>
-                            <th>Management Equivalent</th>
+                            <th>Level</th>
+                            <th>What Exists Today</th>
+                            <th>What's Often Missing</th>
+                            <th>Impact of the Gap</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="role-name">Senior Engineer</td>
-                            <td class="role-name">Senior Engineer</td>
+                            <td class="role-name">Team</td>
+                            <td>Senior Engineers + Eng Managers</td>
+                            <td style="color: #22c55e;">✓ Usually have this</td>
                             <td>—</td>
                         </tr>
                         <tr>
-                            <td style="color: #dc2626;">❌ Missing</td>
-                            <td class="role-name">Staff Engineer</td>
-                            <td>Manager</td>
+                            <td class="role-name">Multi-Team</td>
+                            <td>Directors manage people</td>
+                            <td style="color: #dc2626; font-weight: 600;">✗ Staff Engineers</td>
+                            <td>No cross-team technical leadership</td>
                         </tr>
                         <tr>
-                            <td class="role-name">Principal Engineer</td>
-                            <td class="role-name">Principal Engineer</td>
-                            <td>Senior Manager / Director</td>
+                            <td class="role-name">Domain</td>
+                            <td>Principals (often at wrong level)</td>
+                            <td style="color: #dc2626; font-weight: 600;">✗ Proper leveling</td>
+                            <td>Principals lack authority to make decisions</td>
                         </tr>
                         <tr>
-                            <td style="color: #dc2626;">❌ Missing</td>
-                            <td class="role-name">Distinguished Engineer</td>
-                            <td>VP Engineering</td>
-                        </tr>
-                        <tr>
-                            <td style="color: #dc2626;">❌ Missing</td>
-                            <td class="role-name">Fellow</td>
-                            <td>SVP / CTO</td>
+                            <td class="role-name">Organization</td>
+                            <td>VPs manage</td>
+                            <td style="color: #dc2626; font-weight: 600;">✗ Distinguished Engineers</td>
+                            <td>No company-level technical vision</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="warning-box">
-                <h4>Why the Gap Matters</h4>
-                <p><strong>Retention:</strong> Senior engineers hit a ceiling. They either become managers (often don't want to) or leave for companies with proper IC tracks.</p>
-                <p style="margin-top: 1rem;"><strong>Decision Quality:</strong> Without Staff/Distinguished engineers, technical decisions get made by committees or people far from the code.</p>
-                <p style="margin-top: 1rem;"><strong>Competitive Disadvantage:</strong> Every major tech company has these levels. Top talent expects them. Without them, you can't compete for senior technical leaders.</p>
+                <h4>Why Staff Engineer is Critical</h4>
+                <p><strong>Without Staff Engineers, you have:</strong></p>
+                <ul>
+                    <li>Senior Engineers who hit a career ceiling (next step is Principal, which is too big a jump)</li>
+                    <li>Cross-team technical work with no clear owner (falls to committees or escalates to Principals)</li>
+                    <li>Domain architecture decisions made by people far from the code</li>
+                    <li>Directors who manage people but have no technical leverage across their teams</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>With Staff Engineers, you get:</strong></p>
+                <ul>
+                    <li>Clear career path for Senior Engineers who want to stay technical</li>
+                    <li>Technical leaders working across teams to unblock, align, and design</li>
+                    <li>Domain architecture owned by someone close to the code</li>
+                    <li>Directors get technical leverage without having to be hands-on themselves</li>
+                </ul>
             </div>
 
             <div class="example-box">
-                <h4>What World-Class Orgs Have</h4>
+                <h4>What This Looks Like: Product Domain Example</h4>
+                <p style="color: #d1fae5; font-weight: 600;">Director of Product Engineering oversees 4 teams:</p>
+                <p>├─ <strong style="color: #86efac;">Staff Engineer (works across all 4 teams)</strong></p>
+                <p>├─ Manager, Checkout Team (+ 6 Senior Engineers)</p>
+                <p>├─ Manager, Catalog Team (+ 5 Senior Engineers)</p>
+                <p>├─ Manager, Search Team (+ 7 Senior Engineers)</p>
+                <p>└─ Manager, Recommendations Team (+ 4 Senior Engineers)</p>
+                <p style="margin-top: 1.5rem; color: #86efac;"><strong>The Staff Engineer:</strong></p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #d1fae5;">
+                    <li>Doesn't belong to any one team</li>
+                    <li>Designs the product data model used by all 4 teams</li>
+                    <li>Unblocks teams when they hit cross-team integration issues</li>
+                    <li>Sets API standards so teams aren't solving the same problem 4 different ways</li>
+                    <li>Still codes 70%+ of the time, but on infrastructure used by multiple teams</li>
+                </ul>
+            </div>
+
+            <div class="impact-box">
+                <h3>The Leveling Problem</h3>
+                <p>Many organizations also mis-level their Principal Engineers. They're placed at Manager-equivalent level, when they should be at Director level.</p>
+                <p style="margin-top: 1rem;"><strong>Why this matters:</strong> Principal Engineers make domain-level strategic decisions. If they're leveled at Manager-equivalent, they lack the organizational authority and standing to drive those decisions effectively. They get ignored in leadership meetings. Their decisions get overruled.</p>
+                <p style="margin-top: 1rem;"><strong>Correct leveling:</strong> Principal Engineers should report to VPs and be peers with Directors. They sit at domain leadership, making technical decisions at the same level Directors make people/process decisions.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>World-Class Organizations Have These Tracks</h4>
                 <p><strong>Stripe:</strong> Engineer → Senior → Staff → Principal → Distinguished</p>
                 <p><strong>Shopify:</strong> Developer → Senior → Staff → Principal → Distinguished</p>
                 <p><strong>Netflix:</strong> Engineer → Senior → Staff → Senior Staff → Principal</p>
                 <p><strong>Amazon:</strong> SDE → SDE II → SDE III → Principal → Senior Principal → Distinguished</p>
-                <p style="margin-top: 1rem;">All have 5-6 levels on the IC track, with clear differentiation between each level based on scope of impact, not just years of experience.</p>
+                <p style="margin-top: 1rem; color: #86efac;">All have 5-6 levels on the IC track, with clear differentiation based on scope of impact, not just years of experience.</p>
             </div>
         </div>
 
         <div id="ic-track" class="tab-content">
             <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">The Individual Contributor Track</h2>
-            <p style="font-size: 1.25rem; color: #a1a1a6; margin-bottom: 3rem;">Each level represents an expansion of scope, impact, and influence—not just more years of experience.</p>
+            <p style="font-size: 1.25rem; color: #a1a1a6; margin-bottom: 3rem;">Each level represents an expansion of <strong>scope</strong> and <strong>leverage</strong>. All levels stay hands-on with code, but work at increasingly higher impact points.</p>
 
             <div class="levels-grid">
                 <div class="level-card">
@@ -569,74 +696,74 @@
                         <div class="level-badge">SE</div>
                         <div class="level-title">
                             <h3>Senior Engineer</h3>
-                            <p>Team-Level Impact</p>
+                            <p>Works IN a Team</p>
                         </div>
                     </div>
                     <div class="level-details">
                         <div class="detail-item">
                             <h4>Scope</h4>
-                            <p>Owns significant features or components within their team</p>
+                            <p>Owns significant features within their team</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Horizon</h4>
-                            <p>This quarter (3 months)</p>
+                            <h4>Reports To</h4>
+                            <p>Engineering Manager</p>
                         </div>
                         <div class="detail-item">
                             <h4>Hands-On</h4>
-                            <p>90%+ coding, 10% design/mentoring</p>
+                            <p>Codes daily on user-facing features</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Decision-Making</h4>
-                            <p>Technical decisions within their area, with team input</p>
+                            <h4>Key Decisions</h4>
+                            <p>Technology choices for features, implementation approaches</p>
                         </div>
                     </div>
                     <div class="level-examples">
                         <h4>What This Looks Like:</h4>
                         <ul>
-                            <li>Leads implementation of new checkout flow, mentors 1-2 engineers</li>
-                            <li>Owns the performance optimization of critical API endpoints</li>
-                            <li>Makes technology choices for their features (libraries, patterns)</li>
-                            <li>Participates in on-call rotation, debugs production issues</li>
-                            <li>Reviews code for their team, provides technical guidance</li>
+                            <li>Part of Checkout team, ships features every sprint</li>
+                            <li>Leads implementation of new payment integration</li>
+                            <li>Mentors 1-2 engineers on best practices</li>
+                            <li>Chooses libraries and patterns for their work</li>
+                            <li>On-call for their team, debugs production issues</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="level-card">
+                <div class="level-card highlight">
                     <div class="level-header">
                         <div class="level-badge">ST</div>
                         <div class="level-title">
                             <h3>Staff Engineer</h3>
-                            <p>Multi-Team Impact (Domain Level)</p>
+                            <p>Works ACROSS Teams in a Domain</p>
                         </div>
                     </div>
                     <div class="level-details">
                         <div class="detail-item">
                             <h4>Scope</h4>
-                            <p>Works across multiple teams within a domain</p>
+                            <p>Owns architecture across 3-5 teams in a domain</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Horizon</h4>
-                            <p>2-3 quarters (6-9 months)</p>
+                            <h4>Reports To</h4>
+                            <p>Director</p>
                         </div>
                         <div class="detail-item">
                             <h4>Hands-On</h4>
-                            <p>70-80% coding, 20-30% architecture/design</p>
+                            <p>Codes daily on infrastructure used by multiple teams</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Decision-Making</h4>
-                            <p>Technical direction for their domain, influences standards</p>
+                            <h4>Key Decisions</h4>
+                            <p>Domain architecture, API contracts, technical standards</p>
                         </div>
                     </div>
                     <div class="level-examples">
                         <h4>What This Looks Like:</h4>
                         <ul>
-                            <li>Designs data architecture for entire Health domain</li>
-                            <li>Unblocks 3-4 teams working on related problems</li>
-                            <li>Sets coding standards and patterns for domain teams</li>
-                            <li>Still writes code 70%+ of the time, but at higher leverage points</li>
-                            <li>Leads technical design reviews across teams</li>
-                            <li>Mentors Senior Engineers, coaches on system design</li>
+                            <li>Works across all Product domain teams (not part of any one team)</li>
+                            <li>Designs data model and APIs used by 4 teams</li>
+                            <li>Unblocks teams when they hit cross-team integration issues</li>
+                            <li>Sets standards so teams don't solve problems differently</li>
+                            <li>Builds shared infrastructure and tooling</li>
+                            <li>Still codes 70%+ of time on high-leverage components</li>
                         </ul>
                     </div>
                 </div>
@@ -646,36 +773,36 @@
                         <div class="level-badge">PE</div>
                         <div class="level-title">
                             <h3>Principal Engineer</h3>
-                            <p>Organization-Level Impact</p>
+                            <p>Works ACROSS Entire Domain</p>
                         </div>
                     </div>
                     <div class="level-details">
                         <div class="detail-item">
                             <h4>Scope</h4>
-                            <p>Works across multiple domains, org-wide initiatives</p>
+                            <p>Owns technical strategy for entire domain. Usually 1 per domain.</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Horizon</h4>
-                            <p>6-12 months</p>
+                            <h4>Reports To</h4>
+                            <p>VP Engineering</p>
                         </div>
                         <div class="detail-item">
                             <h4>Hands-On</h4>
-                            <p>50-60% coding/prototyping, 40-50% architecture/strategy</p>
+                            <p>Codes regularly on prototypes and critical infrastructure</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Decision-Making</h4>
-                            <p>Major technical decisions, platform strategy, build vs buy</p>
+                            <h4>Key Decisions</h4>
+                            <p>Platform strategy, build vs buy, major architecture decisions</p>
                         </div>
                     </div>
                     <div class="level-examples">
                         <h4>What This Looks Like:</h4>
                         <ul>
-                            <li>Drives API strategy across all domains (Health, Wealth, Protection)</li>
-                            <li>Builds proof-of-concept for new platform capabilities</li>
-                            <li>Influences build vs buy decisions (observability, auth, etc.)</li>
-                            <li>Designs systems that will be used by 50+ engineers</li>
-                            <li>Resolves major technical debates across leadership</li>
-                            <li>Still codes 50%+ but at highest leverage (prototypes, critical paths)</li>
+                            <li>Owns technical direction for entire Product domain</li>
+                            <li>Drives API strategy across all product teams</li>
+                            <li>Makes build vs buy decisions (auth, observability platforms)</li>
+                            <li>Builds proof-of-concept to validate strategic choices</li>
+                            <li>Resolves major technical debates at domain level</li>
+                            <li>Peer to Directors organizationally</li>
                         </ul>
                     </div>
                 </div>
@@ -685,36 +812,36 @@
                         <div class="level-badge">DE</div>
                         <div class="level-title">
                             <h3>Distinguished Engineer</h3>
-                            <p>Company-Level Impact</p>
+                            <p>Works ACROSS Domains</p>
                         </div>
                     </div>
                     <div class="level-details">
                         <div class="detail-item">
                             <h4>Scope</h4>
-                            <p>Company-wide technical vision and strategy</p>
+                            <p>Company-wide technical initiatives spanning multiple domains</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Horizon</h4>
-                            <p>1-2 years</p>
+                            <h4>Reports To</h4>
+                            <p>VP or CTO</p>
                         </div>
                         <div class="detail-item">
                             <h4>Hands-On</h4>
-                            <p>30-40% coding/prototyping, 60-70% strategy/influence</p>
+                            <p>Codes strategically on prototypes validating company direction</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Decision-Making</h4>
-                            <p>Technical vision, major architecture decisions, technology adoption</p>
+                            <h4>Key Decisions</h4>
+                            <p>Technical vision, cloud strategy, technology adoption</p>
                         </div>
                     </div>
                     <div class="level-examples">
                         <h4>What This Looks Like:</h4>
                         <ul>
-                            <li>Defines 2-year cloud migration strategy for entire company</li>
-                            <li>Evaluates emerging technologies for potential adoption (AI, blockchain, etc.)</li>
-                            <li>Prototypes future platform capabilities to validate direction</li>
-                            <li>Changes company direction on microservices vs monolith strategy</li>
-                            <li>Represents company at major conferences, publishes research</li>
-                            <li>Codes 30-40% but on highest-impact strategic work</li>
+                            <li>Owns platform capabilities used across all domains</li>
+                            <li>Defines cloud migration strategy for entire company</li>
+                            <li>Evaluates emerging tech for company-wide adoption</li>
+                            <li>Prototypes future capabilities to validate 2-year roadmap</li>
+                            <li>Changes company direction on major architecture decisions</li>
+                            <li>Peer to VPs organizationally</li>
                         </ul>
                     </div>
                 </div>
@@ -724,191 +851,109 @@
                         <div class="level-badge">F</div>
                         <div class="level-title">
                             <h3>Fellow</h3>
-                            <p>Industry-Level Impact</p>
+                            <p>Industry-Level Influence</p>
                         </div>
                     </div>
                     <div class="level-details">
                         <div class="detail-item">
                             <h4>Scope</h4>
-                            <p>Industry-wide influence, thought leadership</p>
+                            <p>Industry-wide thought leadership and research</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Horizon</h4>
-                            <p>3-5 years</p>
+                            <h4>Reports To</h4>
+                            <p>CTO</p>
                         </div>
                         <div class="detail-item">
                             <h4>Hands-On</h4>
-                            <p>20-30% coding/research, 70-80% thought leadership</p>
+                            <p>Research and strategic prototyping</p>
                         </div>
                         <div class="detail-item">
-                            <h4>Decision-Making</h4>
-                            <p>Long-term technical vision, industry standards, research directions</p>
+                            <h4>Key Decisions</h4>
+                            <p>Long-term vision, industry standards, research directions</p>
                         </div>
                     </div>
                     <div class="level-examples">
                         <h4>What This Looks Like:</h4>
                         <ul>
-                            <li>Publishes influential research papers that change industry practices</li>
-                            <li>Keynotes at major conferences (AWS re:Invent, Google I/O level)</li>
-                            <li>Influences industry standards and open source direction</li>
-                            <li>Recognized as a top expert in their field globally</li>
-                            <li>Examples: Jeff Dean (Google), Werner Vogels (AWS), Brendan Gregg (Netflix)</li>
+                            <li>Publishes research that influences industry practices</li>
+                            <li>Keynotes at major industry conferences</li>
+                            <li>Recognized globally as expert in their field</li>
+                            <li>Examples: Jeff Dean (Google), Werner Vogels (AWS)</li>
+                            <li>Very rare - most companies have 0-2 Fellows total</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="impact-box">
-                <h3>The Key Pattern: Scope Expands, Hands-On Coding Remains</h3>
-                <p>Notice that even Distinguished Engineers and Fellows still code. The difference isn't "stop coding and just lead" — it's "code at increasingly higher leverage points."</p>
-                <p style="margin-top: 1rem;"><strong>Senior Engineer:</strong> Codes on features users see directly</p>
-                <p><strong>Staff Engineer:</strong> Codes on infrastructure used by multiple teams</p>
-                <p><strong>Principal Engineer:</strong> Codes on platforms used by entire organization</p>
-                <p><strong>Distinguished Engineer:</strong> Codes on prototypes that validate strategic direction</p>
-                <p style="margin-top: 1.5rem; font-size: 1.25rem; color: #60a5fa;">This is what separates great IC tracks from weak ones: senior technical leaders stay hands-on, but shift where they apply their coding to maximize impact.</p>
+                <h3>The Core Pattern</h3>
+                <p style="font-size: 1.25rem;"><strong>Scope expands. Hands-on coding continues.</strong></p>
+                <p style="margin-top: 1.5rem;">Notice all levels still code. The difference isn't "stop coding and just lead" — it's "code at increasingly higher leverage points."</p>
+                <p style="margin-top: 1.5rem;"><strong>Senior Engineer:</strong> Codes on features end-users see (checkout flow, search results)</p>
+                <p><strong>Staff Engineer:</strong> Codes on infrastructure multiple teams use (data models, shared APIs)</p>
+                <p><strong>Principal Engineer:</strong> Codes on platforms entire domain uses (auth system, observability)</p>
+                <p><strong>Distinguished Engineer:</strong> Codes on prototypes validating company strategy (cloud migration PoC)</p>
+                <p style="margin-top: 1.5rem; font-size: 1.125rem; color: #60a5fa;">This is what separates great IC tracks from weak ones: technical leaders stay hands-on but shift where they apply their coding to maximize impact.</p>
             </div>
         </div>
 
-        <div id="in-practice" class="tab-content">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">How Technical Leadership Actually Works</h2>
-            <p style="font-size: 1.25rem; color: #a1a1a6; margin-bottom: 3rem;">The difference becomes clear when you see what people actually DO in a quarter. Here's how different roles create value:</p>
+        <div id="structure" class="tab-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">How It Fits Together</h2>
+            <p style="font-size: 1.25rem; color: #a1a1a6; margin-bottom: 3rem;">Understanding how IC and Management tracks work in parallel, proper leveling, and how technical leadership coexists with architecture functions.</p>
 
-            <div class="comparison-table">
-                <h3 style="color: #f5f5f7; font-size: 1.75rem; margin-bottom: 2rem;">What Did They Actually Do Last Quarter?</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Activity</th>
-                            <th>Staff Engineer</th>
-                            <th>Principal Engineer</th>
-                            <th>Solution Architect</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="role-name">Wrote Code</td>
-                            <td>Built new payment integration, contributed 45 PRs</td>
-                            <td>Proof-of-concept for auth pattern, 12 critical PRs</td>
-                            <td>Minimal to none (0-10%)</td>
-                        </tr>
-                        <tr>
-                            <td class="role-name">Designed Systems</td>
-                            <td>Data model for domain, API contracts for 4 teams</td>
-                            <td>Cross-domain event architecture, platform strategy</td>
-                            <td>Solution architecture for 2 major initiatives</td>
-                        </tr>
-                        <tr>
-                            <td class="role-name">Unblocked Teams</td>
-                            <td>Resolved 8 technical debates within domain</td>
-                            <td>Resolved 5 debates across domains, changed platform direction</td>
-                            <td>Provided guidance on 6 architecture reviews</td>
-                        </tr>
-                        <tr>
-                            <td class="role-name">Mentored</td>
-                            <td>Coached 3 Senior Engineers on system design</td>
-                            <td>Mentored 2 Staff engineers, advised 3 teams</td>
-                            <td>Knowledge transfer to development teams</td>
-                        </tr>
-                        <tr>
-                            <td class="role-name">Influenced</td>
-                            <td>Set standards for domain, improved CI/CD</td>
-                            <td>Changed build vs buy decision, saved $500K</td>
-                            <td>Ensured alignment with enterprise standards</td>
-                        </tr>
-                        <tr>
-                            <td class="role-name">Primary Focus</td>
-                            <td>Building + designing for domain velocity</td>
-                            <td>Strategic prototyping + platform decisions</td>
-                            <td>Design review + standards compliance</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="example-box">
-                <h4>Concrete Example: Authentication Strategy</h4>
-                <p><strong>Principal Engineer's Approach:</strong></p>
-                <p>• Week 1-2: Built working prototype of new OAuth2 pattern in 200 lines of code</p>
-                <p>• Week 3: Showed 5 teams the prototype, gathered feedback, iterated</p>
-                <p>• Week 4: Made build vs buy recommendation based on actual code experience</p>
-                <p>• Week 5-12: Helped 3 teams implement, contributed code to critical paths</p>
-                <p style="margin-top: 1rem; color: #86efac;"><strong>Impact:</strong> Decision validated with code before commitment. Teams moved faster because Principal could unblock with actual implementation knowledge.</p>
-            </div>
-
-            <div class="example-box" style="background: rgba(249, 115, 22, 0.1); border-left-color: #f97316;">
-                <h4 style="color: #fdba74;">Solution Architect's Approach:</h4>
-                <p style="color: #fed7aa;">• Week 1-2: Researched OAuth2 options, created comparison document</p>
-                <p style="color: #fed7aa;">• Week 3-4: Presented to architecture review board, got feedback</p>
-                <p style="color: #fed7aa;">• Week 5-6: Updated architecture diagrams, wrote standards doc</p>
-                <p style="color: #fed7aa;">• Week 7-12: Reviewed team implementations for compliance</p>
-                <p style="margin-top: 1rem; color: #fed7aa;"><strong>Value:</strong> Ensured consistency and standards compliance. Less hands-on validation, more review and documentation.</p>
-            </div>
-
-            <div class="impact-box">
-                <h3>The Key Differentiator: Hands-On Validation</h3>
-                <p>Both roles add value, but in different ways:</p>
-                <p style="margin-top: 1rem;"><strong>Staff/Principal Engineers:</strong> Validate through code. Make decisions based on building it themselves. Can unblock teams by actually implementing critical pieces. Stay close to the reality of development.</p>
-                <p style="margin-top: 1rem;"><strong>Solution/Enterprise Architects:</strong> Validate through analysis and review. Make decisions based on research and standards. Ensure consistency across teams. Provide cross-cutting perspective.</p>
-                <p style="margin-top: 1.5rem; font-size: 1.25rem; color: #60a5fa;">World-class orgs need both, but the IC track (Staff/Principal/Distinguished) is what keeps technical decisions grounded in reality.</p>
-            </div>
-        </div>
-
-        <div id="leveling" class="tab-content">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">Leveling & Career Progression</h2>
-            
-            <div class="ladder-visual">
-                <h3 style="color: #f5f5f7; font-size: 2rem; margin-bottom: 2rem; text-align: center;">Parallel Career Tracks</h3>
-                <p style="color: #a1a1a6; text-align: center; margin-bottom: 3rem; font-size: 1.125rem;">IC and Management tracks are parallel, not hierarchical. A Principal Engineer has the same organizational influence as a Director — just applied differently.</p>
+            <div class="org-structure">
+                <h3>Parallel Career Tracks</h3>
+                <p style="text-align: center; color: #a1a1a6; margin-bottom: 3rem;">IC and Management tracks are parallel and equally valued. A Principal Engineer has the same organizational influence as a Director — just applied to technical decisions vs people decisions.</p>
                 
-                <div class="ladder-tracks">
-                    <div class="track">
-                        <h3>Individual Contributor Track</h3>
-                        <div class="track-levels">
-                            <div class="track-level">
-                                <div class="track-level-name">Fellow</div>
-                                <div class="track-level-equiv">Equivalent to: SVP / CTO</div>
-                            </div>
-                            <div class="track-level">
-                                <div class="track-level-name">Distinguished Engineer</div>
-                                <div class="track-level-equiv">Equivalent to: VP Engineering</div>
-                            </div>
-                            <div class="track-level">
-                                <div class="track-level-name">Principal Engineer</div>
-                                <div class="track-level-equiv">Equivalent to: Director / Sr Manager</div>
-                            </div>
-                            <div class="track-level">
-                                <div class="track-level-name">Staff Engineer</div>
-                                <div class="track-level-equiv">Equivalent to: Manager</div>
-                            </div>
-                            <div class="track-level">
-                                <div class="track-level-name">Senior Engineer</div>
-                                <div class="track-level-equiv">Entry to both tracks</div>
+                <div class="org-tracks">
+                    <div class="org-track">
+                        <h4>Individual Contributor Track</h4>
+                        <div class="org-levels">
+                            <div class="org-level">
+                                <div class="org-level-name">Fellow</div>
+                                <div class="org-level-note">Industry influence, research</div>
+            </div>
+                            <div class="org-level">
+                                <div class="org-level-name">Distinguished Engineer</div>
+                                <div class="org-level-note">Company-wide technical vision</div>
+            </div>
+                            <div class="org-level" style="background: rgba(0, 113, 227, 0.15); border-color: #0071e3;">
+                                <div class="org-level-name">Principal Engineer</div>
+                                <div class="org-level-note">Domain technical strategy</div>
+            </div>
+                            <div class="org-level" style="background: rgba(0, 113, 227, 0.15); border-color: #0071e3;">
+                                <div class="org-level-name">Staff Engineer</div>
+                                <div class="org-level-note">Cross-team technical leadership</div>
+        </div>
+                            <div class="org-level">
+                                <div class="org-level-name">Senior Engineer</div>
+                                <div class="org-level-note">Team-level technical work</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="track">
-                        <h3>Management Track</h3>
-                        <div class="track-levels">
-                            <div class="track-level">
-                                <div class="track-level-name">SVP / CTO</div>
-                                <div class="track-level-equiv">Company-level strategy</div>
+                    <div class="org-track">
+                        <h4>Management Track</h4>
+                        <div class="org-levels">
+                            <div class="org-level">
+                                <div class="org-level-name">SVP / CTO</div>
+                                <div class="org-level-note">Company-level engineering leadership</div>
                             </div>
-                            <div class="track-level">
-                                <div class="track-level-name">VP Engineering</div>
-                                <div class="track-level-equiv">Org-level leadership</div>
+                            <div class="org-level">
+                                <div class="org-level-name">VP Engineering</div>
+                                <div class="org-level-note">Organization-level leadership</div>
                             </div>
-                            <div class="track-level">
-                                <div class="track-level-name">Director / Sr Manager</div>
-                                <div class="track-level-equiv">Multi-team leadership</div>
+                            <div class="org-level" style="background: rgba(0, 113, 227, 0.15); border-color: #0071e3;">
+                                <div class="org-level-name">Director</div>
+                                <div class="org-level-note">Domain-level people leadership</div>
                             </div>
-                            <div class="track-level">
-                                <div class="track-level-name">Engineering Manager</div>
-                                <div class="track-level-equiv">Team leadership</div>
+                            <div class="org-level" style="background: rgba(0, 113, 227, 0.15); border-color: #0071e3;">
+                                <div class="org-level-name">Engineering Manager</div>
+                                <div class="org-level-note">Team people leadership</div>
                             </div>
-                            <div class="track-level">
-                                <div class="track-level-name">Senior Engineer</div>
-                                <div class="track-level-equiv">Entry to both tracks</div>
+                            <div class="org-level">
+                                <div class="org-level-name">Senior Engineer</div>
+                                <div class="org-level-note">Entry point to either track</div>
                             </div>
                         </div>
                     </div>
@@ -917,121 +962,131 @@
 
             <div class="warning-box">
                 <h4>Common Leveling Mistake</h4>
-                <p><strong>Problem:</strong> Many orgs level Principal Engineers at the same level as Managers (1-2 levels below Director). This is wrong.</p>
-                <p style="margin-top: 1rem;"><strong>Why it's wrong:</strong> Principal Engineers should be making organization-level technical decisions. If they're leveled as Manager-equivalent, they lack the authority and influence to drive those decisions.</p>
-                <p style="margin-top: 1rem;"><strong>Correct leveling:</strong> Principal = Director/Senior Manager level. They attend the same leadership meetings, have equivalent decision authority, just focused on technical vs people leadership.</p>
+                <p><strong>Problem:</strong> Many organizations level Staff Engineers at Engineer level (below Manager) and Principal Engineers at Manager level. This is incorrect.</p>
+                <p style="margin-top: 1rem;"><strong>Why it's wrong:</strong></p>
+                <ul>
+                    <li>Staff Engineers work across multiple teams (Manager scope) → should be Manager-equivalent</li>
+                    <li>Principal Engineers make domain-level decisions (Director scope) → should be Director-equivalent</li>
+                    <li>When mis-leveled, they lack authority to make the decisions their role requires</li>
+                    <li>In leadership meetings, they get ignored or overruled due to lower perceived status</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Correct leveling:</strong></p>
+                <ul>
+                    <li>Staff Engineer = Manager level (both lead across a team or teams)</li>
+                    <li>Principal Engineer = Director level (both lead at domain level)</li>
+                    <li>Distinguished Engineer = VP level (both lead at organization level)</li>
+                </ul>
             </div>
 
             <div class="impact-box">
-                <h3>Why Proper Leveling Matters</h3>
-                <p><strong>Retention:</strong> Senior engineers leave when they see no path up without becoming managers. Proper IC track gives them a clear growth path.</p>
-                <p><strong>Authority:</strong> A Principal Engineer leveled at Director-equivalent can actually make the decisions they need to make without escalating everything.</p>
-                <p><strong>Compensation:</strong> If Principal is leveled wrong, comp doesn't match market. You can't compete for top technical talent.</p>
-                <p><strong>Influence:</strong> In meetings, level matters. A Manager-level Principal gets ignored. A Director-level Principal gets heard.</p>
-            </div>
-        </div>
-
-        <div id="roles" class="tab-content">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">Roles in Modern Engineering Organizations</h2>
-            <p style="font-size: 1.25rem; color: #a1a1a6; margin-bottom: 3rem;">Different organizations structure technical leadership differently. Here's how the pieces fit together:</p>
-
-            <div class="impact-box">
-                <h3>Two Complementary Functions</h3>
-                <p><strong>Embedded Technical Leaders (IC Track):</strong></p>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #a1a1a6;">
-                    <li>Staff, Principal, Distinguished Engineers</li>
-                    <li>Sit within product/platform teams</li>
-                    <li>Hands-on builders who also design systems</li>
-                    <li>Make technical decisions for their scope</li>
-                    <li>Stay close to the code and the reality of development</li>
-                </ul>
-
-                <p style="margin-top: 2rem;"><strong>Architecture Functions:</strong></p>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #a1a1a6;">
-                    <li>Solution Architects, Enterprise Architects</li>
-                    <li>Cross-cutting perspective across teams</li>
-                    <li>Standards, governance, patterns, compliance</li>
-                    <li>Bridge between business and engineering</li>
-                    <li>Less hands-on coding, more design review and coordination</li>
-                </ul>
-
-                <p style="margin-top: 2rem; font-size: 1.25rem; color: #60a5fa;"><strong>The Ideal State:</strong> IC track provides hands-on technical leadership within domains. Architecture provides cross-cutting coordination. They work together, not in competition.</p>
-            </div>
-
-            <div class="example-box">
-                <h4>How They Work Together: Example</h4>
-                <p><strong>Scenario:</strong> Company needs to modernize authentication across all products.</p>
-                <p style="margin-top: 1rem;"><strong>Principal Engineer's Role:</strong></p>
-                <p>• Builds proof-of-concept OAuth2 implementation</p>
-                <p>• Validates performance and security with actual code</p>
-                <p>• Works with 5 product teams to implement</p>
-                <p>• Writes critical pieces teams can't figure out</p>
-                <p>• Makes build vs buy recommendation based on hands-on experience</p>
-
-                <p style="margin-top: 1.5rem;"><strong>Enterprise Architect's Role:</strong></p>
-                <p>• Ensures solution aligns with company security standards</p>
-                <p>• Coordinates with compliance and legal teams</p>
-                <p>• Documents patterns in enterprise architecture repository</p>
-                <p>• Reviews implementations for consistency</p>
-                <p>• Connects auth strategy to broader identity management vision</p>
-
-                <p style="margin-top: 1.5rem; color: #86efac;"><strong>Together:</strong> Principal validates what actually works through code. Architect ensures it fits into larger enterprise context. Both add value in complementary ways.</p>
-            </div>
-
-            <div class="comparison-table">
-                <h3 style="color: #f5f5f7; font-size: 1.75rem; margin-bottom: 2rem;">When You Need Each Role</h3>
+                <h3>How IC Track and Architecture Functions Coexist</h3>
+                <p>World-class organizations have <strong>both</strong> strong IC tracks and architecture functions. They serve different but complementary purposes.</p>
+                
+                <div class="comparison-table" style="margin-top: 2rem;">
                 <table>
                     <thead>
                         <tr>
-                            <th>You Need...</th>
-                            <th>For This...</th>
-                            <th>Because...</th>
+                                <th>Aspect</th>
+                                <th>IC Track (Staff/Principal/Distinguished)</th>
+                                <th>Architecture (Solution/Enterprise Architects)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="role-name">Staff Engineer</td>
-                            <td>Domain-level technical leadership</td>
-                            <td>Teams need hands-on guidance, not just approval gates</td>
+                                <td class="role-name">Primary Focus</td>
+                                <td>Hands-on building and technical decision-making</td>
+                                <td>Cross-cutting design review and standards</td>
                         </tr>
                         <tr>
-                            <td class="role-name">Principal Engineer</td>
-                            <td>Platform decisions, cross-domain strategy</td>
-                            <td>Build vs buy decisions need hands-on validation</td>
+                                <td class="role-name">Hands-On Coding</td>
+                                <td>50-70%+ of time writing production code</td>
+                                <td>10-20% of time, mostly prototyping or reviews</td>
                         </tr>
                         <tr>
-                            <td class="role-name">Distinguished Engineer</td>
-                            <td>Company-level technical vision</td>
-                            <td>2-year strategy needs someone who can prototype and validate</td>
+                                <td class="role-name">Decision Mode</td>
+                                <td>Validates through building and prototyping</td>
+                                <td>Validates through analysis and documentation</td>
                         </tr>
                         <tr>
-                            <td class="role-name">Solution Architect</td>
-                            <td>Cross-cutting solution design</td>
-                            <td>Need someone focused on integration and standards</td>
+                                <td class="role-name">Where They Sit</td>
+                                <td>Embedded in product/platform teams</td>
+                                <td>Central architecture function or embedded as advisors</td>
                         </tr>
                         <tr>
-                            <td class="role-name">Enterprise Architect</td>
-                            <td>Enterprise-wide standards and governance</td>
-                            <td>Large orgs need coordination across many teams and legacy systems</td>
+                                <td class="role-name">Speed of Decision</td>
+                                <td>Fast - can decide and implement autonomously</td>
+                                <td>Slower - coordinates across stakeholders</td>
+                            </tr>
+                            <tr>
+                                <td class="role-name">Primary Value</td>
+                                <td>Velocity, technical depth, unblocking teams</td>
+                                <td>Consistency, governance, enterprise integration</td>
                         </tr>
                     </tbody>
                 </table>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>Example: How They Work Together on Auth Strategy</h4>
+                <p style="color: #d1fae5; font-weight: 600;">Principal Engineer's Role:</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #d1fae5;">
+                    <li>Builds working proof-of-concept with OAuth2 in 3 days</li>
+                    <li>Validates performance, security, developer experience with actual code</li>
+                    <li>Works with teams to implement, contributes to critical integrations</li>
+                    <li>Makes build vs buy recommendation based on hands-on experience</li>
+                    <li>Timeline: Decision made in 1-2 weeks</li>
+                </ul>
+                <p style="margin-top: 1.5rem; color: #d1fae5; font-weight: 600;">Enterprise Architect's Role:</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #d1fae5;">
+                    <li>Ensures solution aligns with enterprise security standards</li>
+                    <li>Coordinates with compliance, legal, and security teams</li>
+                    <li>Documents patterns in architecture repository</li>
+                    <li>Reviews implementations for consistency across teams</li>
+                    <li>Connects auth strategy to broader identity management vision</li>
+                </ul>
+                <p style="margin-top: 1.5rem; color: #86efac;"><strong>Together:</strong> Principal validates what works through code. Architect ensures it fits enterprise context. Both add value without stepping on each other.</p>
+            </div>
+
+            <div class="impact-box">
+                <h3>When You Need Each Role</h3>
+                <p><strong>You need Staff/Principal/Distinguished Engineers when:</strong></p>
+                <ul>
+                    <li>Product teams need fast, hands-on technical decisions</li>
+                    <li>Decisions require validation through actual code</li>
+                    <li>You're building new capabilities from scratch</li>
+                    <li>Speed and innovation are priorities</li>
+                    <li>You want to retain top technical talent</li>
+                </ul>
+                <p style="margin-top: 1.5rem;"><strong>You need Solution/Enterprise Architects when:</strong></p>
+                <ul>
+                    <li>You need coordination across many teams (50+ teams)</li>
+                    <li>Compliance and governance are critical (regulated industries)</li>
+                    <li>You're integrating with complex legacy systems</li>
+                    <li>You need enterprise-wide standards and patterns</li>
+                    <li>Cross-functional alignment is a major challenge</li>
+                </ul>
+                <p style="margin-top: 2rem; font-size: 1.25rem; color: #60a5fa;"><strong>The key insight:</strong> Both roles add value, but for product velocity and innovation, IC track is primary. Architecture provides the governance layer.</p>
+                <p style="margin-top: 1rem;">In world-class orgs, the ratio is roughly <strong>1 architect for every 5-8 Staff+ engineers.</strong> IC track is the dominant technical leadership model.</p>
             </div>
 
             <div class="warning-box">
                 <h4>The Risk of Imbalance</h4>
-                <p><strong>Too much architecture, not enough IC track:</strong> Decisions get made by people far from the code. Teams wait for approvals. Innovation slows. Top engineers leave.</p>
-                <p style="margin-top: 1rem;"><strong>Too much IC track, not enough architecture:</strong> Lack of coordination. Every team solves the same problem differently. No enterprise standards or governance.</p>
-                <p style="margin-top: 1rem;"><strong>The balance:</strong> IC track embedded in teams making fast, hands-on decisions. Architecture providing cross-cutting coordination. Both roles clear and respected.</p>
-            </div>
-
-            <div class="impact-box">
-                <h3>What World-Class Looks Like</h3>
-                <p>Organizations like Stripe, Shopify, Netflix have both:</p>
-                <p style="margin-top: 1rem;"><strong>Strong IC tracks:</strong> Staff/Principal/Distinguished engineers deeply embedded in teams, making hands-on technical decisions, moving fast.</p>
-                <p style="margin-top: 1rem;"><strong>Lightweight architecture:</strong> Small architecture teams focused on standards and cross-cutting concerns, enabling rather than gatekeeping.</p>
-                <p style="margin-top: 1rem;"><strong>Clear separation:</strong> Everyone knows what decisions IC track makes vs what architecture team makes. No confusion, no stepping on toes.</p>
-                <p style="margin-top: 1.5rem; font-size: 1.25rem; color: #60a5fa;">The ratio matters: roughly 1 architect for every 5-8 Staff+ engineers. IC track is the primary technical leadership model.</p>
+                <p><strong>Too much architecture, not enough IC track:</strong></p>
+                <ul>
+                    <li>Decisions made by people far from the code</li>
+                    <li>Teams wait weeks for approvals</li>
+                    <li>Innovation slows, velocity drops</li>
+                    <li>Top engineers leave for places with stronger IC tracks</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Too much IC track, not enough architecture:</strong></p>
+                <ul>
+                    <li>Every team solves problems differently</li>
+                    <li>No enterprise standards or governance</li>
+                    <li>Compliance and security gaps</li>
+                    <li>Difficult to coordinate across many teams</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>The balance:</strong> Strong IC track embedded in teams for velocity. Lightweight architecture function for coordination. Clear decision rights so roles don't conflict.</p>
             </div>
         </div>
 
@@ -1040,50 +1095,51 @@
             
             <div class="impact-box">
                 <h3>The Business Impact</h3>
-                <p>Organizations with strong IC tracks and clear technical leadership:</p>
-                <ul style="margin-top: 1rem; padding-left: 1.5rem; color: #a1a1a6;">
-                    <li><strong>Retain top talent:</strong> Senior engineers have a clear growth path that doesn't require managing people</li>
-                    <li><strong>Make better decisions:</strong> Technical decisions made by people who still code and understand the reality</li>
-                    <li><strong>Move faster:</strong> Staff/Principal engineers unblock teams autonomously without escalation</li>
-                    <li><strong>Attract talent:</strong> Top engineers want to work where IC track is respected and well-defined</li>
-                    <li><strong>Scale effectively:</strong> Technical leadership distributed across teams, not centralized in committees</li>
+                <p>Organizations with strong IC tracks deliver measurably better outcomes:</p>
+                <ul>
+                    <li><strong>Retain top talent:</strong> Senior engineers have clear growth paths without becoming managers</li>
+                    <li><strong>Better decisions:</strong> Technical choices made by people who still code daily</li>
+                    <li><strong>Higher velocity:</strong> Staff+ engineers unblock teams autonomously, no committee delays</li>
+                    <li><strong>Attract talent:</strong> Top engineers only join companies with proper IC tracks</li>
+                    <li><strong>Faster innovation:</strong> Technical leaders can prototype and validate quickly</li>
                 </ul>
             </div>
 
             <div class="example-box">
-                <h4>Real-World Impact</h4>
-                <p><strong>Scenario:</strong> A team is blocked on a build vs buy decision for observability platform. Cost could be $500K+.</p>
-                
-                <p style="margin-top: 1rem;"><strong>Without Principal Engineer:</strong></p>
-                <p>• Team escalates to VP Engineering</p>
-                <p>• VP schedules architecture review board meeting (2 weeks out)</p>
-                <p>• Team prepares presentation, board discusses, requests more analysis</p>
-                <p>• Another meeting 2 weeks later, decision finally made</p>
-                <p>• Total time: 6 weeks. Team blocked entire time. Decision based on presentations, not hands-on experience.</p>
-
-                <p style="margin-top: 1.5rem; color: #86efac;"><strong>With Principal Engineer:</strong></p>
-                <p style="color: #d1fae5;">• Principal spends 2 days building proof-of-concept with open-source option</p>
-                <p style="color: #d1fae5;">• Validates it works, identifies gaps, measures performance</p>
-                <p style="color: #d1fae5;">• Makes recommendation with actual data from working code</p>
-                <p style="color: #d1fae5;">• Decision made in 1 week, based on reality not speculation</p>
-                <p style="color: #d1fae5;">• Team unblocked, saves $500K, Principal contributed working code they can build on</p>
+                <h4>The Velocity Difference: Build vs Buy Decision</h4>
+                <p style="color: #fed7aa; font-weight: 600;">Without Principal Engineer:</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #fed7aa;">
+                    <li>Team escalates $500K observability platform decision to VP</li>
+                    <li>VP schedules architecture review board (2 weeks out)</li>
+                    <li>Team prepares presentation, board requests more analysis</li>
+                    <li>Follow-up meeting 2 weeks later, decision finally made</li>
+                    <li><strong>Total time: 6 weeks. Team blocked. Decision based on slides, not code.</strong></li>
+                </ul>
+                <p style="margin-top: 1.5rem; color: #d1fae5; font-weight: 600;">With Principal Engineer:</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #d1fae5;">
+                    <li>Principal spends 2 days building proof-of-concept with open-source option</li>
+                    <li>Validates it meets needs, identifies gaps, measures performance</li>
+                    <li>Makes recommendation backed by actual working code</li>
+                    <li>Team continues building on the PoC Principal created</li>
+                    <li><strong>Total time: 1 week. Saves $500K. Decision based on reality.</strong></li>
+                </ul>
             </div>
 
             <div class="warning-box">
                 <h4>The Cost of Not Having This</h4>
-                <p><strong>Talent drain:</strong> Your best senior engineers leave when they hit the career ceiling. They go to companies with proper IC tracks. You lose institutional knowledge and technical depth.</p>
-                <p style="margin-top: 1rem;"><strong>Decision bottlenecks:</strong> Without Staff/Principal engineers, all technical decisions escalate to VPs or committees. Teams move slowly. Velocity suffers.</p>
-                <p style="margin-top: 1rem;"><strong>Quality issues:</strong> Decisions made far from the code often miss technical reality. Architecture that sounds good on paper doesn't work in practice.</p>
-                <p style="margin-top: 1rem;"><strong>Competitive disadvantage:</strong> Tech companies move faster because they have strong IC tracks. You can't compete if your technical leadership model is 10 years behind.</p>
+                <p><strong>Talent drain:</strong> Your best senior engineers leave when they see no path forward. They join companies with proper IC tracks (Stripe, Shopify, Netflix). You lose institutional knowledge and technical depth.</p>
+                <p style="margin-top: 1rem;"><strong>Decision bottlenecks:</strong> Without Staff+ engineers, all technical decisions escalate to VPs or architecture boards. Teams wait weeks. Velocity drops. You can't compete with companies that move 10x faster.</p>
+                <p style="margin-top: 1rem;"><strong>Quality issues:</strong> Decisions made in conference rooms by people far from the code miss reality. Solutions that look good on paper don't work in practice. Teams inherit technical debt they didn't create.</p>
+                <p style="margin-top: 1rem;"><strong>Culture problems:</strong> When IC track is weak, message to engineers is clear: "to advance, stop coding and manage people." You lose your best builders to management roles they don't want.</p>
             </div>
 
             <div class="impact-box">
                 <h3>What Needs to Change</h3>
-                <p><strong>Add Missing Levels:</strong> Staff Engineer (between Senior and Principal), Distinguished Engineer (above Principal), eventually Fellow.</p>
-                <p><strong>Fix Leveling:</strong> Principal should be Director/Senior Manager equivalent, not Manager equivalent. This isn't a title change — it's recognizing the actual scope of impact.</p>
-                <p><strong>Clarify Responsibilities:</strong> Make it crystal clear what each level owns, what they decide, and how hands-on they should be. No more generic job descriptions.</p>
-                <p><strong>Respect Both Tracks:</strong> IC and Management tracks are equally valuable. Stop treating management as the only path to senior leadership.</p>
-                <p style="margin-top: 1.5rem; font-size: 1.25rem; color: #0071e3;"><strong>This isn't optional if you want to retain top technical talent and compete with modern tech companies.</strong></p>
+                <p><strong>Add the missing levels:</strong> Introduce Staff Engineer (between Senior and Principal). Add Distinguished Engineer above Principal. These aren't nice-to-haves — they're essential for retention and velocity.</p>
+                <p style="margin-top: 1rem;"><strong>Fix the leveling:</strong> Staff should be Manager-equivalent, Principal should be Director-equivalent, Distinguished should be VP-equivalent. This isn't about titles — it's about giving them authority to make the decisions their role requires.</p>
+                <p style="margin-top: 1rem;"><strong>Clarify responsibilities:</strong> Make it crystal clear what each level owns, what they decide, and how hands-on they should be. Generic job descriptions create confusion.</p>
+                <p style="margin-top: 1rem;"><strong>Respect both tracks:</strong> IC and Management tracks must be equally valued. Stop treating management as the only path to influence and compensation.</p>
+                <p style="margin-top: 2rem; font-size: 1.25rem; color: #0071e3;"><strong>This isn't optional if you want to retain top technical talent and compete with modern tech companies.</strong></p>
             </div>
 
             <div style="margin-top: 4rem; padding: 3rem; background: linear-gradient(135deg, #0071e3 0%, #00a8e8 100%); border-radius: 2rem; text-align: center;">
@@ -1093,17 +1149,17 @@
                         <div style="text-align: center;">
                             <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.75rem; font-weight: 700; color: #0071e3;">1</div>
                             <h4 style="color: white; font-size: 1.125rem; margin-bottom: 0.5rem; font-weight: 600;">Audit Current State</h4>
-                            <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Map your current engineers to target levels</p>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Map existing engineers to target IC levels</p>
                         </div>
                         <div style="text-align: center;">
                             <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.75rem; font-weight: 700; color: #0071e3;">2</div>
                             <h4 style="color: white; font-size: 1.125rem; margin-bottom: 0.5rem; font-weight: 600;">Define Levels</h4>
-                            <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Create clear expectations for each IC level</p>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Create clear expectations and decision rights</p>
                         </div>
                         <div style="text-align: center;">
                             <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.75rem; font-weight: 700; color: #0071e3;">3</div>
-                            <h4 style="color: white; font-size: 1.125rem; margin-bottom: 0.5rem; font-weight: 600;">Align Comp</h4>
-                            <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Fix compensation bands to match market</p>
+                            <h4 style="color: white; font-size: 1.125rem; margin-bottom: 0.5rem; font-weight: 600;">Align Compensation</h4>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Fix comp bands to match market rates</p>
                         </div>
                         <div style="text-align: center;">
                             <div style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.75rem; font-weight: 700; color: #0071e3;">4</div>
@@ -1111,34 +1167,29 @@
                             <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Roll out clear career paths to all engineers</p>
                         </div>
                     </div>
-                    <p style="color: white; margin-top: 2.5rem; font-size: 1.125rem; line-height: 1.6;">Building a proper IC track takes 6-12 months, but the impact on retention and decision quality is immediate. Start with clear definitions, then work through leveling and compensation.</p>
+                    <p style="color: white; margin-top: 2.5rem; font-size: 1.125rem; line-height: 1.6;">Building a proper IC track takes 6-12 months, but the impact on retention and velocity is immediate. Start with clear definitions, then work through leveling and compensation.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>Engineering In Motion © 2025</p>
+        <p>Engineering Career Paths © 2025</p>
         <p style="margin-top: 1rem; font-size: 0.875rem;">
-            <a href="index.html" style="color: #0071e3; text-decoration: none;">← Engineering in Motion</a> | 
-            <a href="digital-product-management.html" style="color: #0071e3; text-decoration: none;">Digital Product Management →</a>
+            <a href="../index.html" style="color: #0071e3; text-decoration: none;">← Engineering in Motion</a> | 
+            <a href="../product-management/index.html" style="color: #0071e3; text-decoration: none;">Digital Product Management →</a>
         </p>
     </footer>
 
     <script>
         function showTab(tabName) {
-            // Hide all tabs
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => tab.classList.remove('active'));
             
-            // Remove active class from all buttons
             const buttons = document.querySelectorAll('.tab-button');
             buttons.forEach(button => button.classList.remove('active'));
             
-            // Show selected tab
             document.getElementById(tabName).classList.add('active');
-            
-            // Add active class to clicked button
             event.target.classList.add('active');
         }
     </script>
