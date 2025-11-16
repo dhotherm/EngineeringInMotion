@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering in Motion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: drift 20s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-60px) translateY(-60px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-subtext {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: #6e6e73;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Why Section */
+        .why-section {
+            background: #f5f5f7;
+        }
+
+        .why-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+        }
+
+        .why-card p {
+            color: #6e6e73;
+            line-height: 1.6;
+        }
+
+        /* Practices Grid */
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .practice-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .practice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .practice-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .practice-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .practice-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .practice-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            font-weight: 600;
+        }
+
+        .practice-card p {
+            color: #6e6e73;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .practice-details {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .practice-details h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: #1d1d1f;
+            font-weight: 600;
+        }
+
+        .practice-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .practice-details li {
+            color: #6e6e73;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .practice-details li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Getting Started Section */
+        .getting-started {
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+        }
+
+        .step p {
+            color: #6e6e73;
+        }
+
+        /* Principles Section */
+        .principles {
+            background: #1d1d1f;
+            color: white;
+        }
+
+        .principles .section-header h2 {
+            color: white;
+        }
+
+        .principles .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .principles-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .principle {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        .principle:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .principle h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .principle p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Call to Action */
+        .cta {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #6e6e73;
+            background: #f5f5f7;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .practices-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Engineering in Motion</div>
+            <ul class="nav-links">
+                <li><a href="#why">Why</a></li>
+                <li><a href="#practices">Practices</a></li>
+                <li><a href="#principles">Principles</a></li>
+                <li><a href="#start">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Engineering in Motion</h1>
+            <p>A grassroots movement to transform how we build software—from traditional IT delivery to modern product development.</p>
+            <p class="hero-subtext">Five core practices. One shared mission. Built by engineers, for engineers.</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section id="why" class="why-section">
+        <div class="section-header">
+            <h2>Why Engineering in Motion?</h2>
+            <p>The world is moving fast. To compete with modern tech companies and fintechs, we need to transform how we work—not just what we build.</p>
+        </div>
+        <div class="why-content">
+            <div class="why-card">
+                <h3>Speed Matters</h3>
+                <p>Our business strategy requires us to deliver 4x faster than we do today. That's not incremental improvement—it's fundamental transformation.</p>
+            </div>
+            <div class="why-card">
+                <h3>Culture Drives Outcomes</h3>
+                <p>The best technology in the world won't help if our culture is slow, siloed, and risk-averse. We need to rewire how we collaborate and make decisions.</p>
+            </div>
+            <div class="why-card">
+                <h3>Talent Follows Excellence</h3>
+                <p>Top engineers want to work where engineering excellence is valued, where they can grow, and where they can see the impact of their work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practices Section -->
+    <section id="practices">
+        <div class="section-header">
+            <h2>Five Core Practices</h2>
+            <p>These aren't mandates from leadership. They're the proven patterns that high-performing engineering organizations use to move fast and build great products.</p>
+        </div>
+        <div class="practices-grid">
+            <!-- Practice 1 -->
+            <div class="practice-card">
+                <div class="practice-icon">📊</div>
+                <h3>DORA Metrics at Team Level</h3>
+                <p>Make performance visible. Every team tracks deployment frequency, lead time, change failure rate, and time to restore—and uses these metrics to continuously improve.</p>
+                <div class="practice-details">
+                    <h4>What this looks like:</h4>
+                    <ul>
+                        <li>Teams own their metrics, not leadership</li>
+                        <li>Data drives retrospectives and improvements</li>
+                        <li>Celebrate progress, not perfection</li>
+                        <li>Share learnings across teams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Practice 2 -->
+            <div class="practice-card">
+                <div class="practice-icon">🌐</div>
+                <h3>Open by Default</h3>
+                <p>Default to transparency. Share work in progress, document decisions in the open, and make information accessible to everyone who needs it.</p>
+                <div class="practice-details">
+                    <h4>What this looks like:</h4>
+                    <ul>
+                        <li>Engineering blog for sharing learnings</li>
+                        <li>Public roadmaps and strategy docs</li>
+                        <li>Open source internal tools when possible</li>
+                        <li>Default to public channels, not private DMs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Practice 3 -->
+            <div class="practice-card">
+                <div class="practice-icon">💬</div>
+                <h3>Slack as Communication Backbone</h3>
+                <p>Move from email to real-time collaboration. Use Slack (or similar) as the primary way teams communicate, make decisions, and stay aligned.</p>
+                <div class="practice-details">
+                    <h4>What this looks like:</h4>
+                    <ul>
+                        <li>Public channels for teams and projects</li>
+                        <li>Threaded conversations for context</li>
+                        <li>Integrations that bring work into chat</li>
+                        <li>Reduce meetings, increase async communication</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Practice 4 -->
+            <div class="practice-card">
+                <div class="practice-icon">🎯</div>
+                <h3>Embedded Capability in Teams</h3>
+                <p>End the ticket-and-wait model. Embed specialized skills (security, data, platform) directly into product teams so they can move autonomously.</p>
+                <div class="practice-details">
+                    <h4>What this looks like:</h4>
+                    <ul>
+                        <li>Security engineers pair with product teams</li>
+                        <li>Platform teams enable, not gatekeep</li>
+                        <li>Reduce handoffs and dependencies</li>
+                        <li>Build expertise across the organization</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Practice 5 -->
+            <div class="practice-card">
+                <div class="practice-icon">🚀</div>
+                <h3>Clear Career Paths</h3>
+                <p>Show engineers how they can grow. Create transparent career ladders that value both technical depth and leadership breadth.</p>
+                <div class="practice-details">
+                    <h4>What this looks like:</h4>
+                    <ul>
+                        <li>Dual tracks: Individual Contributor and Leadership</li>
+                        <li>Clear expectations at each level</li>
+                        <li>Regular career conversations, not annual reviews</li>
+                        <li>Invest in learning and development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section id="principles" class="principles">
+        <div class="section-header">
+            <h2>How We Show Up</h2>
+            <p>Beyond the practices, here's how we work together as we build this movement.</p>
+        </div>
+        <div class="principles-list">
+            <div class="principle">
+                <h3>Start Small, Think Big</h3>
+                <p>We don't need permission to improve how we work. Start with your team, prove the value, and let it spread organically.</p>
+            </div>
+            <div class="principle">
+                <h3>Ship and Learn</h3>
+                <p>Perfect is the enemy of good. Get something out there, gather feedback, iterate. Velocity beats perfection every time.</p>
+            </div>
+            <div class="principle">
+                <h3>Build in Public</h3>
+                <p>Share what you're learning—the wins and the failures. Transparency builds trust and accelerates everyone's learning.</p>
+            </div>
+            <div class="principle">
+                <h3>Question Everything</h3>
+                <p>If something doesn't make sense, ask why. Challenge the status quo respectfully, but challenge it. Better ideas come from healthy debate.</p>
+            </div>
+            <div class="principle">
+                <h3>Care Deeply About Craft</h3>
+                <p>We're not just writing code—we're solving problems that matter. Take pride in the quality of what you build and how you build it.</p>
+            </div>
+            <div class="principle">
+                <h3>Lift Others Up</h3>
+                <p>Great engineers make those around them better. Share knowledge, mentor others, and create space for everyone to grow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="start" class="getting-started">
+        <div class="section-header">
+            <h2>Getting Started</h2>
+            <p>You don't need to adopt everything at once. Pick what makes sense for your team and start there.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Pick One Practice</h3>
+                <p>Choose the practice that will have the biggest impact for your team right now. Start small and build momentum.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Run an Experiment</h3>
+                <p>Try it for a sprint or two. Measure what changes. Gather feedback from your team about what's working and what's not.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Share Your Learnings</h3>
+                <p>Document what you tried and what you learned. Share it with other teams so they can learn from your experience.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Iterate and Expand</h3>
+                <p>Based on what worked, iterate on your approach. When you're ready, add another practice. Keep the momentum going.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2>Join the Movement</h2>
+        <p>Engineering in Motion isn't top-down. It's built by engineers who believe we can do better. Let's prove what's possible.</p>
+        <a href="#practices" class="cta-button">Explore the Practices</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Engineering in Motion © 2024 | A grassroots movement for modern engineering culture</p>
+    </footer>
+
+    <script>
+        // Add smooth scroll behavior for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.practice-card, .why-card, .principle, .step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
