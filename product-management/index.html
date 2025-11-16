@@ -435,6 +435,7 @@
         <div class="tabs">
             <button class="tab-button active" onclick="showTab('fundamentals')">Fundamentals</button>
             <button class="tab-button" onclick="showTab('week')">A Week in the Life</button>
+            <button class="tab-button" onclick="showTab('metrics')">Metrics That Matter</button>
             <button class="tab-button" onclick="showTab('capabilities')">Required Capabilities</button>
             <button class="tab-button" onclick="showTab('why')">Why It Matters</button>
         </div>
@@ -603,6 +604,91 @@
             </div>
         </div>
 
+        <div id="metrics" class="tab-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">Metrics: Tracking vs. Using for Decisions</h2>
+            
+            <div class="warning-box">
+                <h4>The Current Confusion</h4>
+                <p>When asked about digital product metrics, many organizations point to an analytics or business intelligence function that "tracks these things." That's not the same as using them to drive product decisions.</p>
+                <p style="margin-top: 1rem;">It's the difference between a financial analyst who reports revenue numbers and a CFO who makes investment decisions based on those numbers. Both need the data, but one is informing and one is deciding.</p>
+            </div>
+
+            <div class="comparison">
+                <div class="column traditional">
+                    <h3>Tracking Metrics</h3>
+                    
+                    <div class="scenario">
+                        <h4>What Gets Tracked</h4>
+                        <ul style="list-style: disc; padding-left: 1.5rem; color: #a1a1a6;">
+                            <li>Overall site traffic and page views</li>
+                            <li>Monthly active users</li>
+                            <li>Call center volumes</li>
+                            <li>Transaction volumes per day</li>
+                            <li>System uptime percentages</li>
+                        </ul>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>How It's Used</h4>
+                        <p>Metrics are compiled into monthly or quarterly reports. Shared with leadership. Used to answer questions when asked. Trends are observed. Issues are escalated when thresholds are breached.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Who Uses It</h4>
+                        <p>Analytics team creates dashboards and reports. Leadership reviews them in business reviews. Product managers see the reports but don't have direct access to drill into the data or run their own analyses.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Time to Action</h4>
+                        <p>If metrics show a problem, it takes weeks to investigate, get approval to address, and implement changes. Metrics are diagnostic, not operational.</p>
+                    </div>
+                </div>
+
+                <div class="column digital">
+                    <h3>Using Metrics for Decisions</h3>
+                    
+                    <div class="scenario">
+                        <h4>What Gets Tracked</h4>
+                        <ul style="list-style: disc; padding-left: 1.5rem; color: #a1a1a6;">
+                            <li><span class="metric">Funnel conversion rates</span> at each step</li>
+                            <li><span class="metric">Feature adoption rates</span> within 7/30/90 days</li>
+                            <li><span class="metric">Time to complete</span> key user journeys</li>
+                            <li><span class="metric">Drop-off points</span> and error rates</li>
+                            <li><span class="metric">Customer LTV</span> by cohort and acquisition channel</li>
+                        </ul>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>How It's Used</h4>
+                        <p>PM checks metrics daily. Identifies opportunities and problems in real-time. Formulates hypotheses. Runs A/B tests. Ships improvements. Measures impact. Repeats weekly.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Who Uses It</h4>
+                        <p>Product manager and team have direct access to all data. Can slice by user segment, device type, time period, channel. No waiting for reports. Self-service analytics.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Time to Action</h4>
+                        <p>See a problem Monday morning, hypothesis formed by Monday afternoon, test shipped Tuesday, results Wednesday, scaled by Friday. Metrics drive weekly iteration cycles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>Example: Mobile Conversion Drop-Off</h4>
+                <p><strong>Tracking approach:</strong> Monthly report shows mobile conversions are 30% lower than desktop. Report goes to leadership. Leads to questions about why. Takes 4 weeks to investigate. Analytics team creates a deep-dive presentation. Leadership reviews. Decision to fix is made. Requirements gathered. Another 3 months to prioritize and implement. <strong>Total time: 4+ months.</strong></p>
+                <p style="margin-top: 1rem;"><strong>Decision-making approach:</strong> PM sees in dashboard that mobile users drop off at file upload step. Reviews session recordings same day. Identifies issue: file size limit too small for phone photos. Hypothesis: increasing limit will improve conversion. Designer updates UI to show better error message. Engineering ships test to 10% of mobile users next day. Conversion improves 15%. Rolled to all users by end of week. <strong>Total time: 5 days.</strong></p>
+            </div>
+
+            <div class="impact-box">
+                <h3>The Key Difference</h3>
+                <p><strong>Tracking metrics</strong> tells you what happened. It's retrospective, diagnostic, and requires escalation to drive action.</p>
+                <p><strong>Using metrics for decisions</strong> drives what happens next. It's prospective, operational, and enables teams to act autonomously.</p>
+                <p style="margin-top: 1.5rem;">Both are valuable. But if you want product velocity, you need the second one. You can't wait weeks for reports when you need to ship daily.</p>
+            </div>
+        </div>
+
         <div id="capabilities" class="tab-content">
             <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">Required Capabilities</h2>
             <p style="font-size: 1.25rem; color: #a1a1a6; margin-bottom: 3rem;">Digital product managers need a different skill set and different organizational support.</p>
@@ -646,6 +732,26 @@
                 <div class="capability-card">
                     <h3>Cross-Functional Leadership</h3>
                     <p>Leads teams through influence, not hierarchy. Works embedded with engineering, design, and data. Comfortable with ambiguity and changing direction based on what's learned.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Product Sense & Taste</h3>
+                    <p>Develops intuition for what will resonate with users. Understands the "why" behind product decisions, not just the "what." Can spot good UX and bad UX instinctively.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Prioritization Ruthlessness</h3>
+                    <p>Comfortable saying no. Can articulate why something isn't being built. Uses frameworks like RICE, value vs effort, or impact mapping to make trade-offs transparent and data-driven.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Technical Debt Navigation</h3>
+                    <p>Understands trade-offs between speed and quality. Can have informed conversations about when to incur technical debt vs when to invest in foundational work. Balances short-term delivery with long-term sustainability.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>System Thinking</h3>
+                    <p>Sees how changes in one part of the product affect others. Understands dependencies, constraints, and second-order effects. Thinks about platform capabilities, not just features.</p>
                 </div>
             </div>
 
@@ -725,6 +831,7 @@
                 <p><strong>Culturally:</strong> Shift from "build what stakeholders ask for" to "solve problems users have." Celebrate learning and iteration, not just shipping features on time. Make it safe to run experiments that fail.</p>
                 <p><strong>Operationally:</strong> Product and engineering need to work in the same cadence. If engineering can deploy daily, product needs to prioritize and validate daily. Weekly sprints don't work if product decisions take 6 weeks to approve.</p>
                 <p style="margin-top: 1.5rem;"><strong>The hard truth:</strong> You can't have modern engineering practices and traditional product management. The mismatch will bottleneck everything. Engineering velocity without product agility just means you build the wrong things faster.</p>
+                <p style="margin-top: 1.5rem; font-size: 1.25rem; color: #0071e3;"><strong>This is why product modernization isn't optional if you want the full value from engineering modernization.</strong></p>
             </div>
         </div>
     </div>
