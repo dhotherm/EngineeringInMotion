@@ -88,7 +88,7 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(0, 113, 227, 0.15) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -244,7 +244,7 @@
 
         .practices-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 4rem;
         }
@@ -267,7 +267,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, #0071e3 0%, #00a8e8 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -283,16 +283,19 @@
         }
 
         .practice-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 1.25rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 80px;
+            height: 80px;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, #0071e3 0%, #00a8e8 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 2rem;
             font-size: 2rem;
-            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 12px 24px rgba(0, 113, 227, 0.4);
+            letter-spacing: -0.02em;
         }
 
         .practice-card h3 {
@@ -342,7 +345,7 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #0071e3;
             font-weight: 600;
         }
 
@@ -413,7 +416,7 @@
 
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2.5rem;
             margin-top: 4rem;
         }
@@ -427,7 +430,7 @@
             width: 72px;
             height: 72px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0071e3 0%, #00a8e8 100%);
             color: white;
             display: flex;
             align-items: center;
@@ -435,7 +438,7 @@
             font-size: 1.75rem;
             font-weight: 700;
             margin: 0 auto 2rem;
-            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 24px rgba(0, 113, 227, 0.4);
         }
 
         .step h3 {
@@ -456,7 +459,7 @@
         .cta {
             text-align: center;
             padding: 10rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0071e3 0%, #00a8e8 100%);
             position: relative;
             overflow: hidden;
         }
@@ -498,7 +501,7 @@
             display: inline-block;
             padding: 1.125rem 3rem;
             background: white;
-            color: #667eea;
+            color: #0071e3;
             text-decoration: none;
             border-radius: 2.5rem;
             font-weight: 600;
@@ -536,6 +539,14 @@
             .section-header h2 {
                 font-size: 3rem;
             }
+
+            .practices-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -560,6 +571,10 @@
             }
 
             .practices-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
                 grid-template-columns: 1fr;
             }
 
@@ -610,12 +625,12 @@
     <section id="why" class="why-section">
         <div class="section-header">
             <h2>Why Engineering in Motion?</h2>
-            <p>The world is moving fast. To compete with modern tech companies and fintechs, we need to transform how we work—not just what we build.</p>
+            <p>The world is moving fast. To compete with modern tech companies and fintechs, we need to transform how we work, not just what we build.</p>
         </div>
         <div class="why-content">
             <div class="why-card">
                 <h3>Speed Matters</h3>
-                <p>Our business strategy requires us to deliver 4x faster than we do today. That's not incremental improvement—it's fundamental transformation.</p>
+                <p>Our business strategy requires us to deliver 4x faster than we do today. That's not incremental improvement - it's fundamental transformation.</p>
             </div>
             <div class="why-card">
                 <h3>Culture Drives Outcomes</h3>
@@ -637,7 +652,7 @@
         <div class="practices-grid">
             <!-- Practice 1 -->
             <div class="practice-card">
-                <div class="practice-icon">📊</div>
+                <div class="practice-icon">01</div>
                 <h3>DORA Metrics at Team Level</h3>
                 <p>Make performance visible. Every team tracks deployment frequency, lead time, change failure rate, and time to restore—and uses these metrics to continuously improve.</p>
                 <div class="practice-details">
@@ -653,7 +668,7 @@
 
             <!-- Practice 2 -->
             <div class="practice-card">
-                <div class="practice-icon">🌐</div>
+                <div class="practice-icon">02</div>
                 <h3>Open by Default</h3>
                 <p>Default to transparency. Share work in progress, document decisions in the open, and make information accessible to everyone who needs it.</p>
                 <div class="practice-details">
@@ -669,7 +684,7 @@
 
             <!-- Practice 3 -->
             <div class="practice-card">
-                <div class="practice-icon">💬</div>
+                <div class="practice-icon">03</div>
                 <h3>Slack as Communication Backbone</h3>
                 <p>Move from email to real-time collaboration. Use Slack (or similar) as the primary way teams communicate, make decisions, and stay aligned.</p>
                 <div class="practice-details">
@@ -685,7 +700,7 @@
 
             <!-- Practice 4 -->
             <div class="practice-card">
-                <div class="practice-icon">🎯</div>
+                <div class="practice-icon">04</div>
                 <h3>Embedded Capability in Teams</h3>
                 <p>End the ticket-and-wait model. Embed specialized skills (security, data, platform) directly into product teams so they can move autonomously.</p>
                 <div class="practice-details">
@@ -701,7 +716,7 @@
 
             <!-- Practice 5 -->
             <div class="practice-card">
-                <div class="practice-icon">🚀</div>
+                <div class="practice-icon">05</div>
                 <h3>Clear Career Paths</h3>
                 <p>Show engineers how they can grow. Create transparent career ladders that value both technical depth and leadership breadth.</p>
                 <div class="practice-details">
