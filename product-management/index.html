@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Product Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #f5f5f7;
+            background: #000000;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #000000 0%, #0a0a14 50%, #000000 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #f5f5f7;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: #a1a1a6;
+            max-width: 800px;
+            margin: 0 auto;
+            letter-spacing: -0.01em;
+        }
+
+        /* Intro Section */
+        .intro {
+            padding: 6rem 0;
+            background: #000000;
+        }
+
+        .intro h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #f5f5f7;
+            letter-spacing: -0.03em;
+        }
+
+        .intro p {
+            font-size: 1.25rem;
+            color: #a1a1a6;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .intro strong {
+            color: #f5f5f7;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            color: #a1a1a6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 0.75rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #f5f5f7;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #0071e3 0%, #00a8e8 100%);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 3rem 0;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Comparison Grid */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .column {
+            background: #1d1d1f;
+            padding: 3rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .column.traditional {
+            border-top: 3px solid #dc2626;
+        }
+
+        .column.digital {
+            border-top: 3px solid #0071e3;
+        }
+
+        .column h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #f5f5f7;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .is-not-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .is-not-item h4 {
+            font-size: 1.25rem;
+            color: #f5f5f7;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .not-this {
+            color: #fca5a5;
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.0625rem;
+        }
+
+        .not-this::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .but-this {
+            color: #86efac;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.0625rem;
+        }
+
+        .but-this::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        /* Scenario Cards */
+        .scenario {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .scenario h4 {
+            color: #0071e3;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .scenario p {
+            color: #a1a1a6;
+            line-height: 1.6;
+            font-size: 1.0625rem;
+        }
+
+        .metric {
+            color: #60a5fa;
+            font-weight: 600;
+            background: rgba(96, 165, 250, 0.1);
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        /* Impact Box */
+        .impact-box {
+            background: linear-gradient(135deg, #1d1d1f 0%, #2a2a2f 100%);
+            padding: 3rem;
+            margin: 3rem 0;
+            border-radius: 2rem;
+            border: 1px solid rgba(0, 113, 227, 0.3);
+            box-shadow: 0 12px 32px rgba(0, 113, 227, 0.2);
+        }
+
+        .impact-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #f5f5f7;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .impact-box p {
+            color: #a1a1a6;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+            font-size: 1.125rem;
+        }
+
+        .impact-box strong {
+            color: #f5f5f7;
+        }
+
+        /* Capability Grid */
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .capability-card {
+            background: #1d1d1f;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .capability-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(0, 113, 227, 0.3);
+        }
+
+        .capability-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #f5f5f7;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .capability-card p {
+            color: #a1a1a6;
+            line-height: 1.6;
+            font-size: 1.0625rem;
+        }
+
+        /* Difference Cards */
+        .difference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .difference-card {
+            background: #1d1d1f;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .difference-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #0071e3;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .difference-card p {
+            color: #a1a1a6;
+            line-height: 1.6;
+            font-size: 1.0625rem;
+        }
+
+        /* Example & Warning Boxes */
+        .example-box {
+            background: rgba(34, 197, 94, 0.1);
+            border-left: 4px solid #22c55e;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 1rem;
+        }
+
+        .example-box h4 {
+            color: #86efac;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .example-box p {
+            color: #d1fae5;
+            line-height: 1.7;
+        }
+
+        .warning-box {
+            background: rgba(249, 115, 22, 0.1);
+            border-left: 4px solid #f97316;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 1rem;
+        }
+
+        .warning-box h4 {
+            color: #fdba74;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .warning-box p {
+            color: #fed7aa;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #86868b;
+            background: #000000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 6rem;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 3rem;
+            }
+
+            .tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .tab-button {
+                white-space: nowrap;
+            }
+
+            .intro h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Digital Product Management</h1>
+        <p>What changes when we shift from traditional product delivery to tech-first product development</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Why This Matters</h2>
+            <p><strong>The gap:</strong> We're modernizing engineering practices, but if Product doesn't evolve alongside it, we won't unlock the velocity we're expecting.</p>
+            <p><strong>The confusion:</strong> Many organizations have excellent traditional product managers running insurance products, benefits programs, and claims processes. But that's different from managing digital products and experiences.</p>
+            <p><strong>The challenge:</strong> We need both. Traditional product expertise AND digital product capabilities. This guide clarifies the difference.</p>
+            
+            <div class="warning-box" style="margin-top: 2rem;">
+                <h4>Common Misconception: "We already have product managers tracking digital metrics"</h4>
+                <p><strong>Reality Check:</strong> Tracking metrics ≠ Using metrics to drive product decisions.</p>
+                <p style="margin-top: 1rem;">Having an analytics team that reports on conversion rates, CTR, and user behavior is different from having product managers who use those metrics daily to make decisions and run experiments. Dashboards are outputs. Using those dashboards to drive product strategy and tactical decisions is the capability we need.</p>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('fundamentals')">Fundamentals</button>
+            <button class="tab-button" onclick="showTab('week')">A Week in the Life</button>
+            <button class="tab-button" onclick="showTab('capabilities')">Required Capabilities</button>
+            <button class="tab-button" onclick="showTab('why')">Why It Matters</button>
+        </div>
+
+        <div id="fundamentals" class="tab-content active">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">The Core Differences</h2>
+            
+            <div class="comparison">
+                <div class="column traditional">
+                    <h3>Traditional Product Management</h3>
+                    
+                    <div class="is-not-item">
+                        <h4>Not This:</h4>
+                        <p class="not-this">Defined by features and launch dates</p>
+                        <p class="but-this">Defined by outcomes and metrics</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Not This:</h4>
+                        <p class="not-this">Success = shipped on time</p>
+                        <p class="but-this">Success = moved key business metrics</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Not This:</h4>
+                        <p class="not-this">Requirements gathered from stakeholders</p>
+                        <p class="but-this">Problems discovered through user research and data</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Not This:</h4>
+                        <p class="not-this">Roadmap = list of features to build</p>
+                        <p class="but-this">Roadmap = bets on problems to solve</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Not This:</h4>
+                        <p class="not-this">Decisions need committee approval</p>
+                        <p class="but-this">Teams empowered to make decisions based on data</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Not This:</h4>
+                        <p class="not-this">Product manager coordinates requirements</p>
+                        <p class="but-this">Product manager owns outcomes and strategy</p>
+                    </div>
+                </div>
+
+                <div class="column digital">
+                    <h3>Digital Product Management</h3>
+                    
+                    <div class="is-not-item">
+                        <h4>Is This:</h4>
+                        <p class="but-this">Obsessed with user behavior and conversion funnels</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Is This:</h4>
+                        <p class="but-this">Runs experiments to validate hypotheses before building</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Is This:</h4>
+                        <p class="but-this">Uses frameworks like Jobs-to-be-Done, AARRR metrics, North Star</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Is This:</h4>
+                        <p class="but-this">Comfortable with ambiguity and rapid iteration</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Is This:</h4>
+                        <p class="but-this">Speaks fluently in LTV, CAC, retention, drop-off rates, CTR</p>
+                    </div>
+
+                    <div class="is-not-item">
+                        <h4>Is This:</h4>
+                        <p class="but-this">Can answer: What's our addressable market? Size of prize? Segmentation strategy?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="impact-box">
+                <h3>The Real Difference</h3>
+                <p>Traditional product management asks: <strong>"What features do stakeholders want?"</strong></p>
+                <p>Digital product management asks: <strong>"What problems do users have, and how do we know if we've solved them?"</strong></p>
+                <p style="margin-top: 1.5rem;">This isn't semantic. It's the difference between:</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #a1a1a6;">
+                    <li>Building a feature because leadership requested it vs testing if users actually need it</li>
+                    <li>Measuring success by "shipped on time" vs "improved conversion by 15%"</li>
+                    <li>Using metrics in quarterly reviews vs using metrics in daily decisions</li>
+                    <li>Product managers who coordinate vs product managers who own outcomes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="week" class="tab-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">A Week in the Life</h2>
+            
+            <div class="comparison">
+                <div class="column traditional">
+                    <h3>Traditional Product Manager</h3>
+                    
+                    <div class="scenario">
+                        <h4>Monday: Requirements Gathering</h4>
+                        <p>Meeting with business stakeholders to understand what features they want in next release. Taking notes on requests. No direct user contact.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Tuesday: Documentation</h4>
+                        <p>Writing detailed requirements document for engineering. Specifying every field, button, and workflow. Document is 45 pages.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Wednesday: Approvals</h4>
+                        <p>Presenting requirements to steering committee for approval. Need sign-off from 7 people. Committee wants changes. Will need another review next month.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Thursday: Status Updates</h4>
+                        <p>Updating project plans. Red/Yellow/Green status reporting. No time with users or data.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Friday: Issue Resolution</h4>
+                        <p>Engineering found issues with requirements. Need to schedule another review meeting. Will push timeline by 2 weeks. Preparing communications for stakeholders.</p>
+                    </div>
+                </div>
+
+                <div class="column digital">
+                    <h3>Digital Product Manager</h3>
+                    
+                    <div class="scenario">
+                        <h4>Monday: User Research Review</h4>
+                        <p>Reviewing session recordings from last week's onboarding flows. Identified 3 drop-off points. <span class="metric">Conversion: 67%</span> on mobile. Hypothesis: form UX is broken. Writing experiment brief for team.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Tuesday: Sprint Planning</h4>
+                        <p>Team decides to test simplified flow. Designer has mockups ready. Engineering can ship test version to 5% of users by Thursday. No approvals needed — team owns outcomes.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Wednesday: Data Analysis</h4>
+                        <p>Looking at <span class="metric">CTR</span> on new feature options. Only 12% of users clicking through. Talking to customer support — users don't understand the value prop. Adjusting messaging.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Thursday: Experiment Launch</h4>
+                        <p>New flow live to 5% of traffic. Early signals look good — <span class="metric">Drop-off rate: 23% → 11%</span>. Will monitor for 3 days then expand to 25% if metrics hold.</p>
+                    </div>
+
+                    <div class="scenario">
+                        <h4>Friday: Strategic Planning</h4>
+                        <p>Calculated <span class="metric">LTV impact</span> of improved conversion: $4.2M annually. Presenting to leadership: should we prioritize automation or UX improvements? Team has data to make the call.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="impact-box">
+                <h3>The Velocity Difference</h3>
+                <p><strong>Traditional approach:</strong> 6-8 weeks to get approval to start building. Another 12-16 weeks to deliver. If it doesn't work, start over.</p>
+                <p><strong>Digital approach:</strong> 3 days to test a hypothesis with real users. Learn and iterate weekly. Ship value continuously.</p>
+                <p><strong>Result:</strong> 10-15x faster learning cycles. Better outcomes because you're testing with real users, not guessing in conference rooms.</p>
+            </div>
+        </div>
+
+        <div id="capabilities" class="tab-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">Required Capabilities</h2>
+            <p style="font-size: 1.25rem; color: #a1a1a6; margin-bottom: 3rem;">Digital product managers need a different skill set and different organizational support.</p>
+
+            <div class="capability-grid">
+                <div class="capability-card">
+                    <h3>Data Literacy</h3>
+                    <p>Comfortable with analytics tools, A/B testing platforms, SQL queries. Can interpret data and make decisions without waiting for analysts. <strong>Key difference:</strong> Doesn't just read reports — actively queries data to answer product questions daily.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>User Research Skills</h3>
+                    <p>Conducts user interviews, analyzes session recordings, runs usability tests. Directly observes user behavior rather than relying on secondhand reports. Comfortable talking to users weekly, not quarterly.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Technical Fluency</h3>
+                    <p>Understands APIs, databases, system architecture. Can have detailed technical conversations with engineering without needing translation. Knows what's technically feasible vs what requires months of work.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Experimentation Mindset</h3>
+                    <p>Frames work as testable hypotheses. Comfortable with failure as learning. Ships MVPs to validate assumptions before building the full solution. Thinks in terms of "what's the smallest thing we can ship to learn?"</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Metrics Ownership</h3>
+                    <p>Owns specific business metrics (not just tracks them). Can articulate the connection between product changes and business outcomes. Uses metrics like LTV, CAC, retention, CTR in daily decision-making — not just quarterly reviews.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Strategic Frameworks</h3>
+                    <p>Fluent in Jobs-to-be-Done, AARRR pirate metrics, North Star framework, opportunity sizing. Can answer: What's our addressable market? What's the size of the prize? How do we segment our users?</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Decision Authority</h3>
+                    <p>Empowered to make product decisions without committee approval. Can prioritize work based on data and user needs, not internal politics. Ships to production based on team consensus, not executive sign-off.</p>
+                </div>
+
+                <div class="capability-card">
+                    <h3>Cross-Functional Leadership</h3>
+                    <p>Leads teams through influence, not hierarchy. Works embedded with engineering, design, and data. Comfortable with ambiguity and changing direction based on what's learned.</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>Example: What This Looks Like in Practice</h4>
+                <p>A digital PM notices mobile conversion is 20% lower than desktop. They don't write requirements for stakeholder approval. Instead, they: (1) Review session recordings to identify friction points, (2) Hypothesis: checkout flow is too complex on mobile, (3) Work with design to create simplified version, (4) Ship to 10% of mobile traffic to test, (5) Measure impact on conversion within 48 hours, (6) Iterate or expand based on results. Total time: 1 week.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>Why This Matters for Engineering Velocity</h4>
+                <p>If engineering can deploy daily but product still requires 8-week approval cycles, we haven't actually increased velocity. Product needs to move at the same speed as engineering, or the whole system is bottlenecked.</p>
+            </div>
+        </div>
+
+        <div id="why" class="tab-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f5f5f7; letter-spacing: -0.03em;">Why It Matters</h2>
+            
+            <div class="impact-box">
+                <h3>The Business Impact</h3>
+                <p>Organizations with strong digital product capabilities ship 5-10x faster, have higher customer satisfaction, and generate more revenue per engineer.</p>
+                <p>But it's not just about speed. It's about building the right things. Traditional product management optimizes for stakeholder satisfaction. Digital product management optimizes for user and business outcomes.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>The "Pockets" Problem</h4>
+                <p>Many organizations have 1-2 product managers who work this way, but the surrounding system forces them back into traditional patterns. You can't have digital product management in pockets — the entire product organization needs to shift, or those individuals will burn out fighting the system.</p>
+                <p style="margin-top: 1rem;"><strong>Test yourself:</strong> Can your product managers answer these questions right now, without scheduling a meeting?</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #fed7aa;">
+                    <li>What's the LTV of our mobile users vs desktop users?</li>
+                    <li>What's our current conversion rate from signup to activation?</li>
+                    <li>Where are users dropping off in our onboarding flow?</li>
+                    <li>What's the size of the addressable market for our newest feature?</li>
+                </ul>
+                <p style="margin-top: 1rem;">If the answer is "our analytics team can pull that report," that's not the same as having product managers who <strong>own</strong> these metrics and use them to drive daily decisions.</p>
+            </div>
+
+            <div class="difference-grid">
+                <div class="difference-card">
+                    <h3>Decision Quality</h3>
+                    <p>Decisions based on user data and experimentation consistently outperform decisions based on opinion and seniority. HIPPOs (Highest Paid Person's Opinion) are expensive.</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>Learning Speed</h3>
+                    <p>Weekly iteration cycles mean you learn what works 50x faster than quarterly release cycles. Faster learning = better products.</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>Talent Attraction</h3>
+                    <p>Top product talent wants to work where they can use modern practices, have decision authority, and see the impact of their work.</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>Risk Reduction</h3>
+                    <p>Small experiments reduce the risk of big failures. Test with 5% of users before committing to a 6-month build.</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>Customer Satisfaction</h3>
+                    <p>Products built with continuous user feedback and iteration have higher satisfaction scores than products built behind closed doors.</p>
+                </div>
+
+                <div class="difference-card">
+                    <h3>Engineering Morale</h3>
+                    <p>Engineers want to build products that matter. When product management is data-driven and outcome-focused, engineering sees the impact of their work.</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>The Compound Effect</h4>
+                <p>If you improve decision quality by 20% and learning speed by 10x, the compound effect over a year is transformative. This is why tech companies move so much faster than traditional enterprises — not because they have better engineers, but because they have better product practices.</p>
+            </div>
+
+            <div class="impact-box">
+                <h3>What Needs to Change</h3>
+                <p><strong>Organizationally:</strong> Product teams need decision authority, direct access to users, and ownership of metrics — not just feature delivery. This means changing governance models, approval processes, and how teams are measured.</p>
+                <p><strong>Culturally:</strong> Shift from "build what stakeholders ask for" to "solve problems users have." Celebrate learning and iteration, not just shipping features on time. Make it safe to run experiments that fail.</p>
+                <p><strong>Operationally:</strong> Product and engineering need to work in the same cadence. If engineering can deploy daily, product needs to prioritize and validate daily. Weekly sprints don't work if product decisions take 6 weeks to approve.</p>
+                <p style="margin-top: 1.5rem;"><strong>The hard truth:</strong> You can't have modern engineering practices and traditional product management. The mismatch will bottleneck everything. Engineering velocity without product agility just means you build the wrong things faster.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Engineering In Motion © 2025 | A guide to modern product practices</p>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
